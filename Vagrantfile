@@ -61,7 +61,7 @@ end
 
 $box = SUPPORTED_OS[$os][:box]
 # if $inventory is not set, try to use example
-$inventory = "inventory/sample" if ! $inventory
+$inventory = "inventory/mycluster/hosts.ini" if ! $inventory
 $inventory = File.absolute_path($inventory, File.dirname(__FILE__))
 
 # if $inventory has a hosts.ini file use it, otherwise copy over
@@ -168,7 +168,7 @@ Vagrant.configure("2") do |config|
         "kube_network_plugin": $network_plugin,
         "kube_network_plugin_multus": $multi_networking,
         "docker_keepcache": "1",
-        "download_run_once": "True",
+        "download_run_once": "False",
         "download_localhost": "False"
       }
 
